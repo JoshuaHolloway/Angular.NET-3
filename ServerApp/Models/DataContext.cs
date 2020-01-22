@@ -1,10 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace ServerApp.Models
-{
+namespace ServerApp.Models {
 
-    public class DataContext : DbContext
-    {
+    public class DataContext : DbContext {
 
         public DataContext(DbContextOptions<DataContext> opts)
             : base(opts) { }
