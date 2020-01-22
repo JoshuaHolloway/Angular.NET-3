@@ -7,21 +7,32 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ServerApp.Models;
 
+// 04
+using System.Linq;
+
 namespace ServerApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        //private readonly ILogger<HomeController> _logger;
+        // 04
+        private DataContext context;
 
-        public HomeController(ILogger<HomeController> logger)
+
+        //public HomeController(ILogger<HomeController> logger)
+        // 04
+        public HomeController(DataContext ctx)
         {
-            _logger = logger;
+            //_logger = logger;
+            // 04
+            context = ctx;
         }
 
         public IActionResult Index()
         {
-            return View();
+            //return View();
             //return View("Placeholder");
+            return View(context.Products.First()); // 04
         }
 
         public IActionResult Privacy()
